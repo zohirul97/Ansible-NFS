@@ -1,1 +1,14 @@
-54.89.65.96 ansible_user=centos
+[web_servers]
+10.0.0.67
+10.0.0.75 ansible_connect=ssh ansible_user=zohirul
+
+[db_servers]
+10.0.0.65
+
+[file_servers]
+10.0.0.60
+
+[workstations]
+10.0.0.60
+#10.0.0.32 apache_package=httpd php_package=php
+# 10.0.0.50 apache_package=apache2 php_package=libapache2-mod-php
