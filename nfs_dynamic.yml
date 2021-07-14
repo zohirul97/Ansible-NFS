@@ -4,7 +4,7 @@
   become: true
   pre_tasks:
 
-  - name: update repository index (CentOS)
+  - name: update repository index
     tags: always
     package:
       update_cache: yes
