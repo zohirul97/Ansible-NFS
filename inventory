@@ -10,5 +10,15 @@
 
 [workstations]
 10.0.0.60
+
+[NFS_Servers]
+10.0.0.60
+10.0.0.75
+
+[NFS_Clients]
+10.0.0.65
+10.0.0.67
+
+
 #10.0.0.32 apache_package=httpd php_package=php
 # 10.0.0.50 apache_package=apache2 php_package=libapache2-mod-php
