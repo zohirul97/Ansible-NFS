@@ -10,14 +10,14 @@
       update_cache: yes
     changed_when: false
 
-- hosts: NFS_Servers
+- hosts: NFS_Servers_Ubuntu, NFS_Servers_CentOS
   become: true
   roles:
     - install_package
     - config_files
     - start_services
  
-- hosts: NFS_Clients
+- hosts: NFS_Clients_CentOS
   become: true
   roles:
     - client_packages

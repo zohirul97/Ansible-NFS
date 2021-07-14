@@ -2,5 +2,5 @@
   package:
     name:
         - rpcbind
-        - "{{ NFS_Client_Pakcage }}"
+        - "{{ NFS_Client_Package }}"
     state: latest
