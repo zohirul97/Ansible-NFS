@@ -15,4 +15,9 @@
   roles:
     - install_package
     - config_files
-    - start_services 
+    - start_services
+ 
+- hosts: NFS_Clients
+  become: true
+  roles:
+    - client_packages

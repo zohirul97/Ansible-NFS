@@ -47,3 +47,10 @@
       path: /etc/exports
       regexp: '^/testnfs'
       line: "/testnfs *(rw,sync,no_root_squash)"
+
+  - name: installing packages for client
+    package:
+      name:
+        - rpcbind
+        - "{{ NFS_Client_Pakcage }}"
+    state: latest 
