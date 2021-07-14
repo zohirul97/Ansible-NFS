@@ -1,0 +1,11 @@
+- name: Creates directory
+  file:
+    path: /testnfs
+    state: directory
+    mode: 0775
+
+- name: configure /etc/exports
+  lineinfile:
+    path: /etc/exports
+    regexp: '^/testnfs'
+    line: "/testnfs *(rw,sync,no_root_squash)"

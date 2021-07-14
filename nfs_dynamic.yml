@@ -13,4 +13,6 @@
 - hosts: NFS_Servers
   become: true
   roles:
-    - 
+    - install_package
+    - config_files
+    - start_services 

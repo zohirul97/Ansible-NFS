@@ -1,0 +1,6 @@
+- name: installing nfs packages
+  package:
+    name:
+    - rpcbind
+    - "{{ nfs_package_name }}"
+    state: latest
