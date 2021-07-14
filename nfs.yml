@@ -1,0 +1,56 @@
+---
+
+- hosts: all
+  become: true
+  pre_tasks:
+
+  - name: update repository index (CentOS)
+    tags: always
+    package:
+      update_cache: yes
+    changed_when: false
+
+  - name: installing nfs packages
+    package:
+      name:
+        - rpcbind
+        - "{{ nfs_package_name }}"
+      state: latest
+  
+  - name: enable and start nfs-server
+    service:
+      name: nfs-server
+      state: started
+      enabled: yes
+    when: ansible_distribution == "CentOS"
+
+  - name: enable and start rpcbind
+    service:
+      name: rpcbind
+      state: started
+      enabled: yes
+    when: ansible_distribution == "CentOS"
+
+  - name: disable selinux
+    selinux:
+      state: disabled
+    when: ansible_distribution == "CentOS"
+
+  - name: Creates directory
+    file:
+      path: /testnfs
+      state: directory
+      mode: 0775
+
+  - name: configure /etc/exports
+    lineinfile:
+      path: /etc/exports
+      regexp: '^/testnfs'
+      line: "/testnfs *(rw,sync,no_root_squash)"
+
+  - name: installing packages for client
+    package:
+      name:
+        - rpcbind
+        - "{{ NFS_Client_Pakcage }}"
+    state: latest 

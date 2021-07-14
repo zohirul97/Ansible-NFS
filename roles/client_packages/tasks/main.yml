@@ -1,0 +1,6 @@
+- name: installing packages for client
+  package:
+    name:
+        - rpcbind
+        - "{{ NFS_Client_Package }}"
+    state: latest

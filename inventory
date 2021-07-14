@@ -1,0 +1,9 @@
+[NFS_Servers_CentOS]
+10.0.0.60
+
+[NFS_Servers_Ubuntu]
+10.0.0.75
+
+[NFS_Clients_CentOS]
+10.0.0.65
+10.0.0.67
